@@ -137,10 +137,10 @@ module.exports = function(webpackEnv) {
           require.resolve('react-dev-utils/webpackHotDevClient'),
         paths.appSrc + '/lottery/index.js',
       ].filter(Boolean),
-      point: [
+      interest: [
         isEnvDevelopment &&
           require.resolve('react-dev-utils/webpackHotDevClient'),
-        paths.appSrc + '/point/index.js',
+        paths.appSrc + '/interest/index.js',
       ].filter(Boolean),
       user: [
         isEnvDevelopment &&
@@ -273,6 +273,7 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        '@common': paths.appSrc + '/common'
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -535,9 +536,9 @@ module.exports = function(webpackEnv) {
           {},
           {
             inject: true,
-            template: paths.appPublic + '/point.html',
-            chunks: ["point"],
-            filename: "point.html"
+            template: paths.appPublic + '/interest.html',
+            chunks: ["interest"],
+            filename: "interest.html"
           },
           isEnvProduction
             ? {
