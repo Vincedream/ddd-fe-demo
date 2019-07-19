@@ -130,22 +130,22 @@ module.exports = function(webpackEnv) {
       index: [
         isEnvDevelopment &&
           require.resolve('react-dev-utils/webpackHotDevClient'),
-          paths.appSrc + '/index/index.js',
+          paths.appSrc + '/page/index/index.js',
       ].filter(Boolean),
       lottery: [
         isEnvDevelopment &&
           require.resolve('react-dev-utils/webpackHotDevClient'),
-        paths.appSrc + '/lottery/index.js',
+        paths.appSrc + '/page/lottery/index.js',
       ].filter(Boolean),
       interest: [
         isEnvDevelopment &&
           require.resolve('react-dev-utils/webpackHotDevClient'),
-        paths.appSrc + '/interest/index.js',
+        paths.appSrc + '/page/interest/index.js',
       ].filter(Boolean),
       user: [
         isEnvDevelopment &&
           require.resolve('react-dev-utils/webpackHotDevClient'),
-        paths.appSrc + '/user/index.js',
+        paths.appSrc + '/page/user/index.js',
       ].filter(Boolean),
     },
     output: {
