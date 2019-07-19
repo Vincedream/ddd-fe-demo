@@ -1,0 +1,23 @@
+.prize-item {
+    display: flex;
+    align-items: center;
+
+    .img-wrap {
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .prize-detail {
+        .name {
+            .super-prize {
+                padding: 0 5px;
+                font-size: 13px;
+                display: inline-block;
+                border-radius: 15px;
+                background: pink;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .user {
+        display: flex;
+        align-items: center;
+        img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 20px;
+        }
+        .vip {
+            border: 5px solid red;
+        }
+    }
+}

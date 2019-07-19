@@ -1,0 +1,23 @@
+.gift-item {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    .img-wrap {
+        position: relative;
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+        .vip-exchange {
+            font-size: 12px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background: salmon;
+        }
+    }
+    .gift-detail {
+        font-size: 13px;
+    }
+}

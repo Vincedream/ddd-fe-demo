@@ -1,0 +1,15 @@
+.lottery-page {
+ .lottery-prize {
+     button {
+         color: wheat;
+         background: gray;
+     }
+     .save-address-modal {
+         display: flex;
+         flex-direction: column;
+         input {
+             border: 1px solid pink;
+         }
+     }
+ }   
+}
