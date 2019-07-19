@@ -7,7 +7,7 @@ const lotteryDetail = {
         name: 'lottery name',
         lotteryType: 3,
         startDate: dayjs('2018-05-05').valueOf(),
-        endDate: dayjs('2018-05-05').valueOf(),
+        endDate: dayjs('2018-09-05').valueOf(),
     }
 }
 
@@ -58,6 +58,7 @@ const playLotteryResult = {
     c: 0,
     m: '',
     d: {
+        recordId: '23212',
         prizeName: '奖品名字15',
         type: 2,
         pic: '//qhstaticssl.kujiale.com/newt/35/image/jpeg/1561970467170/ADA31EAB0FA04012298BA9388189350A.jpg'
