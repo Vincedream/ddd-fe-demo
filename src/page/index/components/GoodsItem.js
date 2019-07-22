@@ -8,11 +8,11 @@ const GoodsItem = (props) => {
         status,
         activityType,
         mainPic,
-        tag // 该字段为后端返回的数组，tag容易被视为单个tag，数组应该是tags
+        tag // **** 该字段为后端返回的数组，tag容易被视为单个tag，数组应该是tags  ****
     } = props.detail || {}
     // 数据处理不应该放在视图层
     const filterTag = tag.filter(v=> v.type !== 2);
-    // dom 展示层不应该书写大量逻辑判断，逻辑代码与dom代码混在一起结构不清晰
+    // ****  dom 展示层不应该书写大量逻辑判断，逻辑代码与dom代码混在一起结构不清晰  ****
     return(
         <div className="goods-item">
             <div className="main-info">
