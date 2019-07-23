@@ -1,51 +1,51 @@
 import React from 'react';
-import dayjs from 'dayjs';
-import { getUserInfo } from './apis/user';
-import { getUserPointCount } from './apis/interest';
+
+import { UserService, InterestService } from './services';
+import User from '@domain/user-domain/user';
+import { SIGN_USER_TYPE } from '@constants/user';
 
 import "./App.scss"
 
 class App extends React.Component {
   state = {
-    userInfo: {},
-    pointCount: null
+    pointCount: null,
+    user: new User()
   }
   componentDidMount() {
     this.getUserInfo();
     this.getUserPonitCount();
   }
+  // 获取用户信息
   getUserInfo = () => {
-    getUserInfo().then(data => {
+    UserService.getUserDetail().then(user => {
       this.setState({
-        userInfo: data
+        user
       })
-    })
+    });
   }
+  // 获取用户积分
   getUserPonitCount = () => {
-    getUserPointCount().then(count => {
+    InterestService.getUserPointCount().then(count => {
       this.setState({
         pointCount: count
       })
     })
   }
   render() {
-    const { userInfo, pointCount } = this.state;
-    const { avatar, userName, userType, tel, vip, email, vipValidityDate } = userInfo;
-    // console.log()
-    const remainDay = dayjs(vipValidityDate).diff(new Date(), 'day');
+    const { pointCount, user } = this.state;
     return (
       <div className="user-page">
         <h3>个人中心</h3>
         <div className="user">
           <div className="info">
-            <div>{userType === 2 ? '尊敬的签约客户：' : null}{userName}</div>
-            <div>绑定手机号： {tel}</div>
-            <div>绑定email： {email}</div>
+            <div>{user.type === SIGN_USER_TYPE ? `尊敬的${user.getUserTypeTitle()}：` : null}{user.name}</div>
+            <div>绑定手机号： {user.phoneNumber}</div>
+            <div>绑定email： {user.email}</div>
           </div>
           <div className="avatar">
-            <img className={`${vip ? 'vip' : ''}`} src={avatar} alt=""/>
-            { remainDay < 6 && vip
-            ? <div>会员还有{remainDay}天</div>
+            <img className={`${user.isVip ? 'vip' : ''}`} src={user.avatarUrl} alt=""/>
+            { user.isNeedRemindUserVipLack() && user.isVip
+            ? <div>会员还有{user.getVipRemainDays()}天</div>
             : ''
             }
           </div>

@@ -112,7 +112,7 @@ const goodsListData = {
                     title: 'hg标签4232'
                 },
                 {
-                    type: 4,
+                    type: 2,
                     title: 'fg标签432'
                 },
                 {
@@ -142,7 +142,7 @@ const goodsListData = {
                     title: 'g标签4f232'
                 },
                 {
-                    type: 4,
+                    type: 2,
                     title: '标签gh432'
                 },
                 {
@@ -168,7 +168,7 @@ const goodsListData = {
                     title: '标d签13'
                 },
                 {
-                    type: 1,
+                    type: 2,
                     title: '标签gh4232'
                 },
                 {
@@ -176,7 +176,7 @@ const goodsListData = {
                     title: '标f签432'
                 },
                 {
-                    type: 3,
+                    type: 2,
                     title: '标签s342'
                 },
             ],
@@ -202,7 +202,7 @@ const goodsListData = {
                     title: '标sd签4232'
                 },
                 {
-                    type: 4,
+                    type: 2,
                     title: '标f签432'
                 },
                 {

@@ -1,6 +1,9 @@
 import React from 'react';
-import { getUserPointCount, getUserPointRecord, getInterestGift } from './apis/interest';
-import { getUserInfo } from './apis/user';
+
+import { UserService, InterestService } from './services'
+import User from '@domain/user-domain/user';
+import { SIGN_USER_TYPE } from '@constants/user';
+
 import PointRecordItem from './components/PointRecordItem';
 import GiftItem from './components/GiftItem';
 
@@ -8,10 +11,10 @@ import "./App.scss";
 
 class App extends React.Component {
   state = {
-    remainPoint: null,
-    pointRecordList: [],
-    interestGiftList: [],
-    userInfo: {}
+    remainPoint: null, // 剩余积分
+    pointRecordList: [], // 积分记录列表
+    interestGiftList: [], // 积分礼品列表
+    user: new User() // 个人信息
   }
   componentDidMount() {
     this.getUserPointCount();
@@ -19,51 +22,59 @@ class App extends React.Component {
     this.getInterestGiftList();
     this.getUserInfo();
   }
+
+  // 获取剩余积分
   getUserPointCount() {
-    getUserPointCount().then(count => {
+    InterestService.getUserPointCount().then(count => {
       this.setState({
         remainPoint: count
       })
     })
   }
+
+  // 获取个人信息
   getUserInfo() {
-    getUserInfo().then(data=>{
+    UserService.getUserDetail().then(user => {
       this.setState({
-        userInfo: data
+        user
       })
-    })
+    });
   }
+
+  // 获取积分记录列表
   getUserPointRecordList() {
-    getUserPointRecord().then(data => {
+    InterestService.getPointRecordList().then(list => {
       this.setState({
-        pointRecordList: data
+        pointRecordList: list
       });
     })
   }
+
+  // 获取权益积分列表
   getInterestGiftList() {
-    getInterestGift().then(data => {
+    InterestService.getInterestGiftList().then(list => {
       this.setState({
-        interestGiftList: data
+        interestGiftList: list
       })
     })
   }
   render() {
-    const { remainPoint, pointRecordList, interestGiftList, userInfo } = this.state;
+    const { user, remainPoint, pointRecordList, interestGiftList } = this.state;
     return (
       <div className="interest-page">
        <h3>积分中心</h3>
-       <div>{userInfo.userType === 2 ? '尊敬的签约客户：' : null}{userInfo.userName}</div>
+       <div>{user.type === SIGN_USER_TYPE ? `尊敬的${user.getUserTypeTitle()}：` : null}{user.name}</div>
         <div>剩余积分： {remainPoint}</div>
         <h3>积分记录</h3>
         <div className="point-record">
           {pointRecordList.map(v=>(
-            <PointRecordItem data={v} />
+            <PointRecordItem record={v} />
           ))}
         </div>
         <h3>积分兑换</h3>
         <div className="point-exchange">
           {interestGiftList.map(v=>(
-            <GiftItem data={v} />
+            <GiftItem gift={v} />
           ))}
         </div>
         <div className="lottery-tips">

@@ -1,3 +1,4 @@
+// lottery
 export const DAYLY_LOTTERY_ID = 1;
 export const HOLIDAY_LOTTERY_ID = 2;
 export const POINT_LOTTERT_ID = 3;
@@ -13,3 +14,6 @@ export const lotteryTypeMap = {
         title: '积分抽奖'
     }
 }
+
+// prize
+export const SUPER_PRIZE_TYPE = 2; // 超级大奖type

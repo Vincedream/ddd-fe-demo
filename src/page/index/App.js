@@ -1,17 +1,18 @@
 import React from 'react';
-import { getGoodsList } from './apis/goods';
 import Nav from './components/Nav';
 import GoodsItem from './components/GoodsItem';
 
+import { GoodsService } from './services';
+
 class App extends React.Component {
   state = {
-    goodsList: []
+    goodsList: [] // 商品列表
   }
   componentDidMount() {
-    getGoodsList().then(data => {
-      console.log(data)
+    // 获取商品列表
+    GoodsService.getGoodsList().then(list=>{
       this.setState({
-        goodsList: data
+        goodsList: list
       })
     })
   }
@@ -22,9 +23,9 @@ class App extends React.Component {
         <Nav />
         <h3>商品列表</h3>
         <div className="goods-list">
-          {goodsList.map(v => {
+          {goodsList.map(data => {
             return (
-              <GoodsItem detail={v} />
+              <GoodsItem goods={data} />
             )
           })}
         </div>

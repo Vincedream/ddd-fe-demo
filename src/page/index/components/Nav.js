@@ -1,27 +1,28 @@
 import React, { Component } from 'react'
-import * as api from '../apis/user';
+import { UserService } from '../services';
+import User from '@domain/user-domain/user';
+import { SIGN_USER_TYPE } from '@constants/user';
 import "./Nav.scss";
 
 export default class Nav extends Component {
     state = {
-        userInfo: {}
+        user: new User()
     }
     componentDidMount() {
-        api.getUserInfo().then( data => {
+        UserService.getUserDetail().then(user => {
             this.setState({
-                userInfo: data
+                user
             })
-        })
+        });
     }
     render() {
-        const { userInfo } = this.state;
-        // dom 展示层不应该书写大量逻辑判断，当无注释时，很难看清所以的判断条件
+        const { user } = this.state;
         return (
             <div className="nav">
                 <div>DDD 商城</div>
                 <div className="user">
-                    <img className={`${userInfo.vip ? 'vip' : ''}`} src={userInfo.avatar} alt=""/>
-                    <span>{userInfo.userType === 2 ? '尊敬的签约客户：' : null}{userInfo.userName}</span>
+                    <img className={`${user.isVip ? 'vip' : ''}`} src={user.avatarUrl} alt=""/>
+                    <span>{user.type === SIGN_USER_TYPE ? `尊敬的${user.getUserTypeTitle()}：` : null}{user.name}</span>
                 </div>
             </div>
         )

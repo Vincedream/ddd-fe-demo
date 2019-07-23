@@ -7,10 +7,10 @@ const userInfo = {
         userId: '2323',
         email: 'artistcoder@163.com',
         userName: 'huajinbo',
-        tel: 13982837472,
+        tel: '13982837472',
         userType: 2,
         vip: true,
-        vipValidityDate: dayjs('2019-07-23').valueOf(),
+        vipValidityDate: dayjs('2019-07-27').valueOf(),
         avatar: 'https://qhyxpicoss.kujiale.com/avatars/58.jpg'
     }
 }
