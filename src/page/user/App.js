@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UserService, InterestService } from './services';
-import User from '@domain/user-domain/user';
+import User from '@domain/user-domain/entities/user';
 import { SIGN_USER_TYPE } from '@constants/user';
 
 import "./App.scss"
@@ -45,8 +45,8 @@ class App extends React.Component {
           <div className="avatar">
             <img className={`${user.isVip ? 'vip' : ''}`} src={user.avatarUrl} alt=""/>
             { user.isNeedRemindUserVipLack() && user.isVip
-            ? <div>会员还有{user.getVipRemainDays()}天</div>
-            : ''
+              ? <div>会员还有{user.getVipRemainDays()}天</div>
+              : ''
             }
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { getGoodsList } from '@data-source/goods/requestApis';
-import Goods from './goods';
+import Goods from './entities/goods';
 
 class GoodsService {
 

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { UserService, InterestService, LotteryService } from './services';
 
-import User from '@domain/user-domain/user';
-import Lottery from '@domain/lottery-domain/lottery'
-import Prize from '@domain/lottery-domain/prize'
+import User from '@domain/user-domain/entities/user';
+import Lottery from '@domain/lottery-domain/entities/lottery'
+import Prize from '@domain/lottery-domain/entities/prize'
 
 import { SIGN_USER_TYPE } from '@constants/user';
 

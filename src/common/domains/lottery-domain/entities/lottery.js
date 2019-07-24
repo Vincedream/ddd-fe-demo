@@ -1,3 +1,6 @@
+/**
+ * 抽奖活动实体
+ */
 import dayjs from 'dayjs'
 import { lotteryTypeMap } from '@constants/lottery'
 class Lottery {

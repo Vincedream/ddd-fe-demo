@@ -4,8 +4,8 @@ import {
     getInterestGiftList
 } from '@data-source/interest/requestApis';
 
-import PrizeRecord from './pointRecord';
-import PointGift from './pointGift';
+import PrizeRecord from './entities/pointRecord';
+import PointGift from './entities/pointGift';
 
 class InterestService {
     /**

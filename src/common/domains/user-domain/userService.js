@@ -1,5 +1,5 @@
 import { getUserDetail } from '@data-source/user/requestApis';
-import User from './user';
+import User from './entities/user';
 
 class UserService {
     /**

@@ -1,5 +1,5 @@
 /**
- * 奖品类
+ * 奖品实体
  */
 import { SUPER_PRIZE_TYPE } from '@constants/lottery';
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import dayjs from 'dayjs';
 import "./PointRecordItem.scss"
 
 export default function PointRecordItem(props) {

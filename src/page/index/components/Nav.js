@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { UserService } from '../services';
-import User from '@domain/user-domain/user';
+import User from '@domain/user-domain/entities/user';
 import { SIGN_USER_TYPE } from '@constants/user';
 import "./Nav.scss";
 

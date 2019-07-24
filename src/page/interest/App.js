@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UserService, InterestService } from './services'
-import User from '@domain/user-domain/user';
+import User from '@domain/user-domain/entities/user';
 import { SIGN_USER_TYPE } from '@constants/user';
 
 import PointRecordItem from './components/PointRecordItem';
