@@ -140,7 +140,7 @@ npm run start
 ### 视图层过厚
 
 **问题代码的位置：** `/src/page/index/components/GoodsItem.js`
-```
+``` javascript
 return(
     <div className="goods-item">
         <div className="main-info">
