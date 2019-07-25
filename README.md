@@ -177,14 +177,14 @@ return(
 
 **问题代码位置：**  `src/page/index/components/Nav.js` & `src/page/user/App.js`
 
-```
+``` javascript
 <div className="user">
     <img className={`${userInfo.vip ? 'vip' : ''}`} src={userInfo.avatar} alt=""/>
     <span>{userInfo.userType === 2 ? '尊敬的签约客户：' : null}{userInfo.userName}</span>
 </div>
 ```
 
-```
+``` javascript
 <div>{userType === 2 ? '尊敬的签约客户：' : null}{userName}</div>
 ```
 **存在的问题：** 同样的逻辑在两个视图层中重复出现，这是团队协作经常会遇到的问题，假设例子中的逻辑较假设非常复杂的，各成员实现方式不一致，在后期维护将会造成许多问题。
@@ -199,7 +199,7 @@ return(
 
 **问题代码位置：** `src/page/index/apis/user.js` & `src/page/lottery/apis/user.js` & `src/page/user/apis/user.js`
 
-```
+``` javascript
 import axios from '@common/util/http';
 
 export function getUserInfo() {
@@ -217,7 +217,7 @@ export function getUserInfo() {
 
 **问题代码：** `src/page/user/App.js`
 
-```
+``` javascript
 getUserInfo().then(data => {
     this.setState({
         userInfo: data
@@ -358,7 +358,7 @@ npm run start // 启动前端服务
 - requestApi：数据请求层，负责 http 请求，是项目中唯一与后端服务进行交流的一层。
 
 代码位置： `src/common/data-source/interest/requestApis.js`
-```
+``` javascript
 import axios from '@common/util/http';
 src/common/data-source/interest/requestApis.js
 import { pointRecordTranslator, pointGiftTranslator } from './translators'
@@ -382,7 +382,7 @@ export function getInterestGiftList() {
 
 代码位置： `src/common/data-source/goods/translators.js`
 
-```
+``` javascript
 export function goodsTranslator({
     id,
     goodsName,
@@ -422,7 +422,7 @@ export function goodsTranslator({
 
 **代码位置：** `src/common/domains/lottery-domain/entities/lottery.js`
 
-```
+``` javascript
 /**
  * 抽奖活动实体
  */
@@ -456,7 +456,7 @@ export default Lottery
 
 **代码位置：** `src/common/domains/lottery-domain/lotteryService.js`
 
-```
+``` javascript
 import {
     getLotteryDetail,
     getPrizeList,
@@ -527,7 +527,7 @@ export default LotteryService
 
 **代码位置：** `src/page/user/App.js`
 
-```
+``` javascript
 import React from 'react';
 
 import { UserService, InterestService } from './services';
@@ -596,7 +596,7 @@ export default App;
 
 我们可以对比之前写的“问题代码”： 
 
-```
+``` javascript
   render() {
     const { userInfo, pointCount } = this.state;
     const { avatar, userName, userType, tel, vip, email, vipValidityDate } = userInfo;
