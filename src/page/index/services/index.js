@@ -3,5 +3,5 @@ import UserService from '@domain/user-domain/userService';
 
 export {
     GoodsService,
-    UserService
+    UserService,
 }
